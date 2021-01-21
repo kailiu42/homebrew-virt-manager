@@ -23,6 +23,11 @@ class Qemu < Formula
   depends_on "spice"
   depends_on "spice-protocol"
   depends_on "openssl@1.1"
+  depends_on "libgcrypt"
+  depends_on "lzfse"
+  depends_on "zstd"
+  depends_on "libusb"
+  depends_on "sphinx-doc"
 
   # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
   resource "test-image" do
@@ -44,6 +49,14 @@ class Qemu < Formula
       --disable-sdl
       --disable-gtk
       --enable-spice
+      --enable-gcrypt
+      --enable-lzfse
+      --enable-zstd
+      --enable-libusb
+      --enable-avx2
+      --enable-avx512f
+      --enable-docs
+      --extra-cflags=-mfma
     ]
     # Sharing Samba directories in QEMU requires the samba.org smbd which is
     # incompatible with the macOS-provided version. This will lead to
