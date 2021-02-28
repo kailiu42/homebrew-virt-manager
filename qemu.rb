@@ -43,7 +43,7 @@ class Qemu < Formula
       --cc=#{ENV.cc}
       --host-cc=#{ENV.cc}
       --disable-bsd-user
-      --enable-guest-agent
+      --disable-guest-agent
       --enable-libssh
       --enable-vde
       --disable-sdl
