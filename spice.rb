@@ -1,8 +1,8 @@
 class Spice < Formula
   homepage "https://www.spice-space.org/"
-  version "0.14.91"
-  url "https://www.spice-space.org/download/releases/spice-0.14.91.tar.bz2"
-  sha256 "d29acdfe56a09a4f68ddb11e1be27029d478dd863c80245a02e2eaae54afa10f"
+  version "0.15.0"
+  url "https://www.spice-space.org/download/releases/spice-server/spice-#{version}.tar.bz2"
+  sha256 "b320cf8f4bd2852750acb703c15b72856027e5a8554f8217dfbb3cc09deba0f5"
   license "GPL-2.0-only"
 
   head do
