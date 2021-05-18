@@ -7,6 +7,8 @@ class Qemu < Formula
   license "GPL-2.0-only"
   head "https://git.qemu.org/git/qemu.git"
 
+  option "with-docs", "Build and install man pages and HTML manual"
+
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "ninja" => :build
@@ -28,7 +30,7 @@ class Qemu < Formula
   depends_on "lzfse"
   depends_on "zstd"
   depends_on "libusb"
-  depends_on "sphinx-doc"
+  depends_on "sphinx-doc" if build.with? "docs"
 
   # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
   resource "test-image" do
@@ -56,9 +58,11 @@ class Qemu < Formula
       --enable-libusb
       --enable-avx2
       --enable-avx512f
-      --enable-docs
       --extra-cflags=-mfma
     ]
+
+    args << "--enable-docs" if build.with? "docs"
+
     # Sharing Samba directories in QEMU requires the samba.org smbd which is
     # incompatible with the macOS-provided version. This will lead to
     # silent runtime failures, so we set it to a Homebrew path in order to
