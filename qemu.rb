@@ -1,24 +1,28 @@
 class Qemu < Formula
   desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
-  version "6.0.0"
+  version "6.2.0"
   url "https://download.qemu.org/qemu-#{version}.tar.xz"
-  sha256 "87bc1a471ca24b97e7005711066007d443423d19aacda3d442558ae032fa30b9"
+  sha256 "68e15d8e45ac56326e0b9a4afa8b49a3dfe8aba3488221d098c84698bca65b45"
   license "GPL-2.0-only"
   head "https://git.qemu.org/git/qemu.git"
 
   option "with-docs", "Build and install man pages and HTML manual"
 
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
+
   depends_on "glib"
   depends_on "gnutls"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "libslirp"
   depends_on "libssh"
   depends_on "libusb"
   depends_on "lzo"
+  depends_on "ncurses"
   depends_on "nettle"
   depends_on "pixman"
   depends_on "snappy"
@@ -29,12 +33,11 @@ class Qemu < Formula
   depends_on "libgcrypt"
   depends_on "lzfse"
   depends_on "zstd"
-  depends_on "libusb"
   depends_on "sphinx-doc" if build.with? "docs"
 
   # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
-  resource "test-image" do
-    url "https://dl.bintray.com/homebrew/mirror/FD12FLOPPY.zip"
+  resource "homebrew-test-image" do
+    url "https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/FD12FLOPPY.zip"
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
   end
 
@@ -47,7 +50,9 @@ class Qemu < Formula
       --host-cc=#{ENV.cc}
       --disable-bsd-user
       --disable-guest-agent
+      --enable-curses
       --enable-libssh
+      --enable-slirp=system
       --enable-vde
       --disable-sdl
       --disable-gtk
@@ -58,7 +63,7 @@ class Qemu < Formula
       --enable-libusb
       --enable-avx2
       --enable-avx512f
-      --extra-cflags=-mfma
+      --extra-cflags=-mfma\ -DNCURSES_WIDECHAR=1
     ]
 
     args << "--enable-docs" if build.with? "docs"
@@ -70,9 +75,7 @@ class Qemu < Formula
     # Samba installations from external taps.
     args << "--smbd=#{HOMEBREW_PREFIX}/sbin/samba-dot-org-smbd"
 
-    on_macos do
-      args << "--enable-cocoa"
-    end
+    args << "--enable-cocoa" if OS.mac?
 
     # Only build this targets
     args << "--target-list=aarch64-softmmu,arm-softmmu,i386-softmmu,x86_64-softmmu"
