@@ -1,8 +1,9 @@
 class ManPages < Formula
   desc "Linux man pages"
+  version "5.13"
   homepage "https://www.kernel.org/doc/man-pages/download.html"
-  url "https://mirrors.edge.kernel.org/pub/linux/docs/man-pages/man-pages-5.11.tar.xz"
-  sha256 "3eda5dce5184599ec37dae3494cf964c550362e9a41fb724792da610bdb13caa"
+  url "https://mirrors.edge.kernel.org/pub/linux/docs/man-pages/man-pages-#{version}.tar.xz"
+  sha256 "614dae3efe7dfd480986763a2a2a8179215032a5a4526c0be5e899a25f096b8b"
 
   resource "man-pages-posix" do
     url "https://mirrors.edge.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-2017-a.tar.xz"
