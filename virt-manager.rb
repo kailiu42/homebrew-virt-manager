@@ -3,9 +3,9 @@ class VirtManager < Formula
 
   desc "App for managing virtual machines"
   homepage "https://virt-manager.org/"
-  version "4.0.0"
+  version "4.1.0"
   url "https://virt-manager.org/download/sources/virt-manager/virt-manager-#{version}.tar.gz"
-  sha256 "515aaa2021a4bf352b0573098fe6958319b1ba8ec508ea37e064803f97f17086"
+  sha256 "950681d7b32dc61669278ad94ef31da33109bf6fcf0426ed82dfd7379aa590a2"
   revision 1
 
   depends_on "intltool" => :build
@@ -29,8 +29,8 @@ class VirtManager < Formula
   depends_on "vte3"
 
   resource "libvirt-python" do
-    url "https://libvirt.org/sources/python/libvirt-python-8.1.0.tar.gz"
-    sha256 "a21ecfab6d29ac1bdd1bfd4aa3ef58447f9f70919aefecd03774613f65914e43"
+    url "https://libvirt.org/sources/python/libvirt-python-8.6.0.tar.gz"
+    sha256 "81f49a648a4f3fbebf4abf3f8d4b1468654689d4df6fd21a303d1c1ca9344871"
   end
 
   resource "idna" do
@@ -39,23 +39,23 @@ class VirtManager < Formula
   end
 
   resource "certifi" do
-    url "https://pypi.io/packages/source/c/certifi/certifi-2021.10.8.tar.gz"
-    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
+    url "https://pypi.io/packages/source/c/certifi/certifi-2022.6.15.tar.gz"
+    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
   end
 
   resource "chardet" do
-    url "https://pypi.io/packages/source/c/chardet/chardet-4.0.0.tar.gz"
-    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
+    url "https://pypi.io/packages/source/c/chardet/chardet-5.0.0.tar.gz"
+    sha256 "0368df2bfd78b5fc20572bb4e9bb7fb53e2c094f60ae9993339e8671d0afb8aa"
   end
 
   resource "urllib3" do
-    url "https://pypi.io/packages/source/u/urllib3/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://pypi.io/packages/source/u/urllib3/urllib3-1.26.11.tar.gz"
+    sha256 "ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
   end
 
   resource "requests" do
-    url "https://pypi.io/packages/source/r/requests/requests-2.27.1.tar.gz"
-    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
+    url "https://pypi.io/packages/source/r/requests/requests-2.28.1.tar.gz"
+    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
   end
 
   def install
