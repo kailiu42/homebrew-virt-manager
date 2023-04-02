@@ -1,9 +1,9 @@
 class ManPages < Formula
   desc "Linux man pages"
-  version "5.13"
+  version "6.03"
   homepage "https://www.kernel.org/doc/man-pages/download.html"
   url "https://mirrors.edge.kernel.org/pub/linux/docs/man-pages/man-pages-#{version}.tar.xz"
-  sha256 "614dae3efe7dfd480986763a2a2a8179215032a5a4526c0be5e899a25f096b8b"
+  sha256 "5f7f289d30b296b78116a08e7703df9375aa846b332b57dca47ddcbb7809fbbd"
 
   depends_on "coreutils" => :build
 
