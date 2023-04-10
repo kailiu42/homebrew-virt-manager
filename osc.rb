@@ -3,9 +3,9 @@ class Osc < Formula
 
   desc "Command-line interface to work with an Open Build Service"
   homepage "https://openbuildservice.org"
-  version "1.0.1"
+  version "1.1.0"
   url "https://github.com/openSUSE/osc/archive/refs/tags/#{version}.tar.gz"
-  sha256 "c8bba251b1f546fef9a9b0739c6b74df9ecca4ffd832eb9351b651c6c0033755"
+  sha256 "ccbeb4a812d2518ec26b2509a54689641346d413fe88ad4f9770768c3016b6a7"
   license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
@@ -14,14 +14,13 @@ class Osc < Formula
   depends_on "openssl@3"
   depends_on "pycparser"
   depends_on "python@3.11"
-
-  uses_from_macos "curl"
+  depends_on "pyyaml"
 
   uses_from_macos "curl"
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/fa/f3/f4b8c175ea9a1de650b0085858059050b7953a93d66c97ed89b93b232996/cryptography-39.0.2.tar.gz"
-    sha256 "bc5b871e977c8ee5a1bbc42fa8d19bcc08baf0c51cbf1586b0e87a2694dde42f"
+    url "https://files.pythonhosted.org/packages/15/d9/c679e9eda76bfc0d60c9d7a4084ca52d0631d9f24ef04f818012f6d1282e/cryptography-40.0.1.tar.gz"
+    sha256 "2803f2f8b1e95f614419926c7e6f55d828afc614ca5ed61543877ae668cc3472"
   end
 
   resource "rpm" do
